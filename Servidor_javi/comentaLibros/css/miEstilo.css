@@ -1,0 +1,471 @@
+/* Globales */
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    background-image: url(./../img/wallpaper.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+.titulo {
+    color: #e8e8e8;
+    font-size: 42;
+    margin: 0;
+    text-shadow: 5px 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+.titulo-secundario {
+    color: #232323;
+    font-size: 36;
+    margin: 5px;
+}
+
+/* Cabecera */
+.cabecera {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #232323;
+}
+
+.navegacion {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.enlace {
+    color: #e8e8e8;
+    text-decoration: none;
+    font-size: 20;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.enlace:hover {
+    color: #e8e8e8;
+}
+
+/* Contenido Pagina */
+.contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding-bottom: 20px;
+}
+
+.contenedor-titulo {
+    background-color: rgba(23, 23, 23, 0.8);
+    max-width: 800px;
+
+    text-align: center;
+    margin: 100px 0 40px 0;
+    padding: 25px;
+}
+
+.texto-contenido {
+    color: #e8e8e8;
+    font-size: 36px;
+    padding: 15px;
+    background-color: rgba(23, 23, 23, 0.8);
+    text-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.sin-fondo {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.volver {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.flecha-volver {
+    transition: transform .3s ease, stroke .3s ease;
+}
+
+.flecha-volver:hover {
+    transform: translate(-5px, 0px);
+    stroke: #aaaaaa;
+}
+
+.contenedor-comentarios {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 60px;
+}
+
+@media (max-width: 1400px) {
+    .contenedor-comentarios {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor-comentarios {
+        grid-template-columns: auto;
+        grid-gap: 40px;
+    }
+}
+
+/* Comentarios */
+
+.comentario {
+    display: flex;
+    flex-direction: column;
+    max-width: min(500px, 100%);
+    padding: 20px;
+    color: #e8e8e8;
+    background-color: #232323;
+}
+
+.contenedor-portada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portada-libro {
+    max-height: 500px;
+    max-width: 500px;
+}
+
+.titulo-libro {
+    font-size: 35px;
+    padding: 25px 0 10px 0;
+}
+
+.autor-libro {
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+.descripcion-comentario {
+    margin-bottom: 15px;
+}
+
+.boton-borrar {
+    border: none;
+    background-color: rgb(255, 61, 61);
+    width: 225px;
+    color: #e8e8e8;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px;
+    margin: auto 0 0 auto;
+}
+
+.boton-borrar:hover {
+    cursor: pointer;
+    background-color: rgb(219, 59, 59);
+}
+
+.input-invisible {
+    display: none;
+}
+
+.formulario-borrar-boton {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+}
+
+/* Modales */
+.modal {
+    display: none;
+
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.contenido-modal {
+    background-color: #fefefe;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+}
+
+.boton-cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.boton-cerrar:hover,
+.boton-cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Formulario Insertar Comentario */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.campos-formulario:nth-child(1) {
+    margin-top: 50px;
+}
+
+.campo-formulario+.campo-formulario {
+    margin-top: 20px;
+}
+
+.nombre-campo {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.introduccion-datos {
+    border: none;
+    background-color: #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+    border-radius: 5px;
+    width: min(700px, 70%);
+    padding: 10px;
+}
+
+.introduccion-datos:focus {
+    outline: none;
+    border-bottom: #202020 1px solid;
+}
+
+.boton-enviar {
+    margin-top: 30px;
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    overflow: hidden;
+    border-radius: 5px;
+    border: none;
+    background-color: #202020
+}
+
+.boton-enviar:hover {
+    border-radius: 5px;
+    padding-right: 24px;
+    padding-left: 8px;
+}
+
+.boton-enviar:hover:after {
+    opacity: 1;
+    right: 10px;
+}
+
+.boton-enviar:after {
+    content: "\00BB";
+    position: absolute;
+    opacity: 0;
+    font-size: 20px;
+    line-height: 40px;
+    top: 0;
+    right: -20px;
+    transition: 0.4s;
+}
+
+/* Insertar comentarios */
+.contenedor-formulario-comentario {
+    width: 75%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 40px;
+    gap: 60px;
+}
+
+@media (max-width: 768px) {
+    .contenedor-formulario-comentario {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.formulario-comentario {
+    background-color: #202020;
+    margin: 0;
+    padding: 40px;
+}
+
+.campo-insertar-comentario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 15px 0;
+}
+
+.etiqueta-datos-comentario {
+    color: #e8e8e8;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.datos-formulario-comentario {
+    font-size: 15px;
+    padding: 10px;
+    width: min(100%, 500px);
+
+    border: none;
+    border-radius: 10px;
+}
+
+.datos-formulario-comentario-grande {
+    width: min(100%, 900px);
+    height: 200px;
+}
+
+.subir-fichero-oculto {
+    display: none;
+}
+
+.datos-formulario-comentario-subir {
+    text-align: center;
+    background-color: #e8e8e8;
+    padding: 15px;
+    font-size: 20px;
+    width: 170px;
+    border-radius: 5px;
+}
+
+.datos-formulario-comentario-subir:hover {
+    background-color: #aaaaaa;
+    cursor: pointer;
+}
+
+.datos-formulario-comentario:focus {
+    outline: none;
+}
+
+.botonera {
+    width: 90%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.boton-publicar-comentario {
+    padding: 10px;
+    font-size: 24px;
+    background-color: #e8e8e8;
+    width: 160px;
+    color: #202020;
+    border: none;
+    border-radius: 5px;
+}
+
+.boton-publicar-comentario:hover {
+    cursor: pointer;
+    background-color: #aaaaaa;
+}
+
+.contenedor-texto-insertar-comentario {
+    background-color: rgba(23, 23, 23, 0.8);
+    padding: 15px;
+}
+
+.texto-insertar-comentario {
+    color: #E9E9E9;
+    font-size: 20px;
+}
+
+/* Tabla usuarios */
+.contenedor-tabla {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tabla-usuarios {
+    margin-top: 20px;
+    width: 70%;
+    color: #E9E9E9;
+    background-color: rgba(25, 25, 25, 0.9);
+    border-collapse: collapse;
+}
+
+.titulo-celda, .contenido-celda {
+    text-align: center;
+    border: 1px solid  #444444;
+}
+.titulo-celda {
+    padding: 15px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+.contenido-celda {
+    padding: 5px;
+}
+
+.formulario-borrar-usuario {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-tabla {
+    font-size: 14px;
+    padding: 10px;
+    width: 170px;
+    margin: 0;
+}

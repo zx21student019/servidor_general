@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/miEstilo.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>    
+    <title>Login con registro</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+              <ul class="nav justify-content-end bg-dark">
+                <li class="nav-item">
+                  <a class="nav-link " data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="modal" data-bs-target="#loginRegistro">Registro</a>
+                </li>
+                </li>
+              </ul>
+              <div class="modal" id="loginModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- cabecera del modal -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Login</h4>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- cuerpo del modal -->
+                    <div class="modal-body">
+                      <form action="login.py" method="get">
+                        <div class="mb-3 mt-3">
+                          <label for="usuario" class="form-label">Usuario:</label>
+                          <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="passwd" class="form-label">Contraseña:</label>
+                          <input type="text" class="form-control" id="passwd" placeholder="Contraseña" name="passwd" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                      </form> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal" id="loginRegistro">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- cabecera del modal -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Login</h4>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- cuerpo del modal -->
+                    <div class="modal-body">
+                      <form action="registro.py" method="get">
+                        <div class="mb-3 mt-3">
+                          <label for="usuario" class="form-label">Usuario:</label>
+                          <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="passwd" class="form-label">Contraseña:</label>
+                          <input type="text" class="form-control" id="passwd" placeholder="Contraseña" name="passwd" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="email" class="form-label">Correo electrónico:</label>
+                          <input type="email" class="form-control" id="email" placeholder="Correo electrónico" name="email" required>
+                        </div>                        
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                      </form> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2"></div>
+          </div>
+    </div>
+</body>
+</html>

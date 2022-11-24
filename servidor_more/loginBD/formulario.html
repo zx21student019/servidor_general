@@ -1,0 +1,163 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="HalvarStnclBreit-MdMidG.woff2" as="font" type="font/woff2" crossorigin>
+    <title>FLATSPOT</title>
+    <link rel="shortcut icon" href="logo.png">
+    <style>
+        * {
+            margin: 0px;
+            font-size: 17px;
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .cabecera {
+            background-color: #171717;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .titulo {
+            background-color: #171717;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .Flatspot {
+            color: #F08C1B;
+            margin-top: 25px;
+            margin-left: px;
+            font-family: 'Halvar Stncl Breit Md MinG';
+        }
+
+        .cuerpo {
+            width: 100%;
+            height: 100%;
+            background-image: url(fondo.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        a {
+            margin-top: 32px;
+            min-width: 130px;
+            height: 26px;
+            color: #171717;
+            padding: 5px 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            outline: none;
+            border-radius: 20px;
+            border: 2px solid #F08C1B;
+            background: #F08C1B;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background: #171717;
+            color: #F08C1B;
+        }
+
+        .cuerpo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .tabla {
+            margin-top: 100px;
+            width: 17%;
+            background-color: #F08C1B;
+            height: 30%;
+        }
+
+        .enviar {
+            min-width: 130px;
+            height: 40px;
+            color: #F08C1B;
+            padding: 5px 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            outline: none;
+            border-radius: 20px;
+            border: 2px solid #171717;
+            background: #171717;
+        }
+
+        .enviar:hover {
+            background: #F08C1B;
+            color: #171717
+        }
+
+        label {
+            width: 72px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        h1 {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="titulo">
+        <h1 class="Flatspot">FLATSPOT</h1>
+    </div>
+    <div class="cabecera">
+        <a href="aplicacion.html" class="regis">Volver</a>
+    </div>
+
+    <div class="cuerpo">
+        <table class="tabla">
+            <form action="formulario.py" method="get">
+            <tr align="center">
+                <td colspan="2">
+                    <h1>Registrarse</h1>
+                </td>
+            </tr>
+            <tr align="center">
+                <td><label for="nombre" class="">Nombre:</label></td>
+                <td><input type="text" name="nombre" id="nombre" placeholder="Nombre" required/></td>
+            </tr>
+
+            <tr align="center">
+                <td><label for="email" class="form-label">email:</label></td>
+                <td><input type="email" name="email" id="email" placeholder="email" required /></td>
+            </tr>
+            <tr align="center">
+                <td><label for="contrasena" class="">Contrasena:</label></td>
+                <td><input type="password" name="contrasena" id="contrasena" placeholder="contrasena" required/></td>
+            </tr>
+
+            <tr align="center">
+                <td colspan="2"><button type="submit" class="enviar">Enviar</button></td>
+            </tr>
+            </form>
+
+        </table>
+    </div>
+
+</body>
+
+</html>

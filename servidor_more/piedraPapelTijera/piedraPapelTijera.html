@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra Papel Tijera</title>
+    <style>
+        *{text-align: center;
+    font-family: Arial; 
+    font-size: 50px; 
+    COLOR: #7DE2D1; 
+    text-shadow: 0px 0px 9px #339989;
+    background-color:#2B2C28;
+    }
+
+    h1{
+        font-size: 90px;
+    }
+    div.cuerpo{
+        background-color:#2B2C28;
+        
+    }
+    button{
+        background-color: #131515;
+        padding: 15px;
+    }
+    button:hover{
+        background-color:#2B2C28;
+        COLOR: #FFFAFB;
+
+    }
+</style>
+
+</head>
+<body>
+    <h1>Piedra Papel Tijera</h1>
+    <div class="cuerpo"> 
+                <h4 class="text-center display-4">Piedra Papel o Tijera Contra El Ordenador</h4>  
+                <form action="piedraPapelTijera.py" method="get">
+                    <div class="botonera">
+                        <input type="radio" name="numero" value="1"> Piedra<br>
+                        <input type="radio" name="numero" value="2"> Papel<br>
+                        <input type="radio" name="numero" value="3"> Tijera<br>
+                    </div>   
+                    <button type="submit" class="btn btn-primary">Jugar</button>          
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>LOGIN AL CNI</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h4 class="text-center display-4">Formulario de prueba de ejecución con python</h4>
+                <hr>
+                <form action="login.py" method="post">
+                    <div class="mb-3 mt-3">
+                      <label for="usuario" class="form-label">Nombre:</label>
+                      <input type="text" class="form-control" id="usuario" placeholder="Introduce el usuario" name="usuario">
+                    </div>
+                    <div class="mb-3">
+                      <label for="pass" class="form-label">Contraseña:</label>
+                      <input type="text" class="form-control" id="pass" placeholder="Introduce la pass" name="pass">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                  </form>                
+            </div>
+            <div class="col-3"></div>
+          </div>
+    </div>
+</body>
+</html>

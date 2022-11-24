@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">         
+    <title>Piedra,papel o tijeras</title>
+</head>
+<body>
+    <!--Cuerpo del HTML-->
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h3 class="display-3" align="center">Piedra, Papel o Tijeras</h3>
+                <hr>
+                <form action="piedrapapeltijera.py" method="get" align="center" id="formulario">
+                    <div class="mb-3 mt-3">
+                        <label for="j1" class="form-label" id="labelJug">Jugador:</label>
+                        <select name="jugada" id="jugada">
+                            <option>Piedra</option>
+                            <option>Papel</option>
+                            <option>Tijeras</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="botonSubmit">Jugar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
