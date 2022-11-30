@@ -30,7 +30,7 @@ if "usuario" in args and "email" in args and "passwd" in args:
 
     sql = 'SELECT COUNT(*) FROM usuarios where usuario like \"%s\"'
 
-    val=(user,)
+    val=(user, passwd, mail)
 
     mycursor.execute(sql,val)
 

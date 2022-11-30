@@ -56,11 +56,9 @@ if estasDentro:
     usr=myresult[0]
     id=myresult[1]
 
-    
-
     #la imagen subida por el cliente se guarda en el directorio img
     if fileitem.filename:
-        fn = os.path..basename(fileitem.filename)
+        fn = os.path.basename(fileitem.filename)
         open("img/"+fn, 'wb').write(fileitem.file.read())
 
     #inserta la informacion en la base de datos
