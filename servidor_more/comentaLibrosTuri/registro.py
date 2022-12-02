@@ -1,9 +1,12 @@
 #!C:\Users\zx21student019\AppData\Local\Microsoft\WindowsApps\python.exe
 
-import cgi
+import cgi ,cgitb
 import codigoHTML
 import hashlib
 import mysql.connector
+
+cgitb.enable()
+print("Content-Type: text/html\n")
 
 #conectar a la base de datos
 mydb = mysql.connector.connect(
@@ -30,7 +33,7 @@ if "usuario" in args and "email" in args and "passwd" in args:
 
     sql = 'SELECT COUNT(*) FROM usuarios where usuario like \"%s\"'
 
-    val=(user, passwd, mail)
+    val=(user,)
 
     mycursor.execute(sql,val)
 
@@ -38,7 +41,7 @@ if "usuario" in args and "email" in args and "passwd" in args:
 
     if myresult[0]==0:
         #inserta en base de datos
-        sql = 'INSERT INTO usuarios (usuario, passwd, mail,rolid ) VALUES (%s, %s, %s, 2)'
+        sql = 'INSERT INTO usuarios (usuario, passwd, mail,rolId ) VALUES (%s, %s, %s, 2)'
 
         val = (user, passwd, mail)
         mycursor.execute(sql, val)

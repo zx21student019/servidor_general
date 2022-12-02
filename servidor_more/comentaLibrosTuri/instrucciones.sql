@@ -8,13 +8,17 @@ CREATE TABLE roles (
 	descripcion varchar(255),
     PRIMARY KEY (id)
 );
+
+INSERT INTO roles(descripcion) VALUES(1);
+INSERT INTO roles(descripcion) VALUES(2);
+
 CREATE TABLE usuarios (
     id int NOT NULL AUTO_INCREMENT,
     usuario varchar(255) UNIQUE NOT NULL,
     passwd varchar(600) NOT NULL,
     mail varchar(255),
     rolId int,
-    coki varchar(600) NOT NULL,
+    coki varchar(600),
     FOREIGN KEY (rolId) REFERENCES roles(id),
     PRIMARY KEY (id)
 );

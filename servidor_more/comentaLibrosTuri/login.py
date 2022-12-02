@@ -1,11 +1,14 @@
 #!C:\Users\zx21student019\AppData\Local\Microsoft\WindowsApps\python.exe
 
-import cgi, os
+import cgi, os ,cgitb
 import codigoHTML
 from http import cookies
 import datetime
 import hashlib
 import mysql.connector
+
+cgitb.enable()
+print("Content-Type: text/html\n")
 
 #conectar a la base de datos
 mydb = mysql.connector.connect(
@@ -24,15 +27,15 @@ if "usuario" in args and "passwd" in args:
     usu = args["usuario"][0]
     h=hashlib.sha512(str.encode(args["passwd"][0]))
     passwd=h.hexdigest()
-
+    
     #crear un cursor a la base de datos
     mycursor = mydb.cursor()    
 
-    sql = "SELECT id,passwd,rolId FROM usuarios where usuario like '"+usu+"'"
+    sql = "SELECT id,passwd,rolId FROM usuarios where usuario = '"+usu+"'"
     mycursor.execute(sql)
     myresult = mycursor.fetchone()
 
-    if myresult[1]==passwd:
+    if myresult != None and myresult[1]==passwd:
         existe = True
 
 

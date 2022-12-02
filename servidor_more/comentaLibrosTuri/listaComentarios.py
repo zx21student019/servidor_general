@@ -1,4 +1,4 @@
-#!C:\Users\alberto.turienzo\AppData\Local\Microsoft\WindowsApps\python
+#!C:\Users\zx21student019\AppData\Local\Microsoft\WindowsApps\python.exe
 
 import codigoHTML,os
 from http import cookies
