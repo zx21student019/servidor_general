@@ -8,7 +8,6 @@ import hashlib
 import mysql.connector
 
 cgitb.enable()
-print("Content-Type: text/html\n")
 
 #conectar a la base de datos
 mydb = mysql.connector.connect(
