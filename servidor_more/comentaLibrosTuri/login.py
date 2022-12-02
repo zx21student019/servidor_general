@@ -28,7 +28,7 @@ if "usuario" in args and "passwd" in args:
     passwd=h.hexdigest()
     
     #crear un cursor a la base de datos
-    mycursor = mydb.cursor()    
+    mycursor = mydb.cursor()
 
     sql = "SELECT id,passwd,rolId FROM usuarios where usuario = '"+usu+"'"
     mycursor.execute(sql)
