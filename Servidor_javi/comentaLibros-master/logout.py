@@ -2,6 +2,7 @@
 
 import os, datetime, codigoHTML
 from http import cookies
+from registrarTimestamp import registrarTiempo
 
 todasCokis={} 
 if 'HTTP_COOKIE' in os.environ:
@@ -22,6 +23,8 @@ if 'SID' in todasCokis:
     logOut = True
             
 if logOut:
+    # Habria que poner todasCokis['SID'] pero hay que cambiar esto...
+    registrarTiempo(todasCokis['SID'], os.path.basename(__file__), 'Cierre de sesión exitoso')
     print("Content-Type: text/html\n")
     print(codigoHTML.cabeceraHTML.format("Log out con exito", '<meta http-equiv="Refresh" content="2; URL=comentaLibros.html"/>', '', "Log out con exito","Redirigiendo"))
     print(codigoHTML.finalHTML)

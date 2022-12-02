@@ -37,7 +37,7 @@ if 'SID' in todasCokis:
      consulta = cursor.fetchall()
      for fila in consulta:
           if(str(fila[0])==todasCokis['SID']):
-               if fila[4] == 1:
+               if fila[5] == 1:
                     admin = True
                estasDentro=True
             

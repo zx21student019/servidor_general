@@ -4,6 +4,7 @@ import cgi
 import codigoHTML
 import hashlib
 from baseDeDatos import cursor, baseDeDatos
+import datetime
 
 args = cgi.parse()
 
@@ -30,9 +31,8 @@ if "usuario" in args and "email" in args and "passwd" in args:
             break
 
     if correcto:
-        
-        sentencia = 'INSERT INTO usuarios (usuario, passwd, mail, rolId) VALUES (%s, %s, %s, 2)'
-        valores = (datos[0], datos[2], datos[1])
+        sentencia = 'INSERT INTO usuarios (usuario, passwd, mail, tmpRegistro, rolId) VALUES (%s, %s, %s,  %s, 2)'
+        valores = (datos[0], datos[2],datos[1], datetime.datetime.now())
         cursor.execute(sentencia, valores)
         baseDeDatos.commit()
 

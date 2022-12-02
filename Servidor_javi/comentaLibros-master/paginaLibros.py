@@ -47,7 +47,7 @@ if 'SID' in todasCokis:
     for fila in consulta:
         if(str(fila[0])==todasCokis['SID']):
             nombreUsuario = fila[1]
-            if fila[4] == 1:
+            if fila[5] == 1:
                 admin = True
             estasDentro=True
             

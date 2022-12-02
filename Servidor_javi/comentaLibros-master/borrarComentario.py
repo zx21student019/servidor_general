@@ -1,5 +1,6 @@
 #!C:\Users\zx21student030\AppData\Local\Programs\Python\Python310\python.exe
 
+from registrarTimestamp import registrarTiempo
 import cgi, os, cgitb
 from baseDeDatos import cursor, baseDeDatos
 import codigoHTML
@@ -24,7 +25,7 @@ if 'SID' in todasCokis:
     consulta = cursor.fetchall()
     for fila in consulta:
         if(str(fila[0])==todasCokis['SID']):
-            if fila[4] == 1:
+            if fila[5] == 1:
                 admin = True
             estasDentro=True
 
@@ -42,6 +43,7 @@ if str(usuario) == str(usuarioLibro[0][0]) or admin:
     borrado = True
 
 if borrado:
+    registrarTiempo(usuario, os.path.basename(__file__), 'Comentario Borrado')
     print('Content-Type: text/html\n')
     print(codigoHTML.cabeceraHTML.format("Comentario",'<meta http-equiv="Refresh" content="2; URL=paginaLibros.py"/>', '', "Comentario Borrado!","Redirigiendo"))
     print(codigoHTML.finalHTML)
