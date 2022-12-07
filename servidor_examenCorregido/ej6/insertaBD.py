@@ -1,4 +1,4 @@
-#!C:\Users\zx19student136\AppData\Local\Microsoft\WindowsApps\python
+#!C:\Users\mores\AppData\Local\Microsoft\WindowsApps\python
 
 import cgi
 import mysql.connector
