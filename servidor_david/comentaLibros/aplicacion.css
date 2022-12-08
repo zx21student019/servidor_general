@@ -1,0 +1,24 @@
+#botones {
+    display: flex;
+    justify-content: center;
+}
+
+#botonLog {
+    position: relative;
+    top: 70px;
+    right:200px;
+}
+
+#botonReg {
+    position: relative;
+    top: 70px;
+    left:200px;
+}
+
+#img1{
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 90px;
+    height: 420px;
+}
