@@ -30,6 +30,10 @@ for nota in listaNotas:
         texto += " "+nota+"\n"
     contNota +=1  
 
+#con la siguiente linea añadiriamos lo que queremos escribir al documento (si tenemos puesta esa a)
+#  f = open("salida.dat", "a")
+
+#con la siguiente linea reescribimos el documento (si tenemos puesta esa w)
 f = open("salida.dat", "w")
 f.write(texto)
 f.close()
