@@ -1,13 +1,13 @@
-#!C:\Users\zx21student023\AppData\Local\Microsoft\WindowsApps\python
+#!C:\Users\aceru\AppData\Local\Programs\Python\Python310\python.exe
 
 import cgi
 import mysql.connector
 
 mydb = mysql.connector.connect(
     host="localhost",
-    user="biblioteca",
-    password="biblioteca",
-    database="biblioteca"
+    user="ejercicio6",
+    password="ejercicio6",
+    database="ejercicio6"
 )
 
 args = cgi.parse()
@@ -35,7 +35,7 @@ if noVacio:
 
     lista = mycursor.fetchall()
     for socios in lista:
-        if socios[1]==socio:
+        if socios[1]==socio: #str(socios[1]).lower()==socio.lower() para que no importe mayusc o minusc
             usuario=True
             idSocio=socios[0]
 

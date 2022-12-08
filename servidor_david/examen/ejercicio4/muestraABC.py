@@ -1,12 +1,13 @@
-#!C:\Users\zx21student023\AppData\Local\Microsoft\WindowsApps\python
+#!C:\Users\aceru\AppData\Local\Programs\Python\Python310\python.exe
 
 from http import cookies
 import os
 
+#esto se copia y se pega
 todasCokis={} #diccionario vacio
 if 'HTTP_COOKIE' in os.environ:
-    listaCoki = os.environ['HTTP_COOKIE'] #"SID=ASDFasdf344"
-    listaCoki = listaCoki.split('; ') #["SID=ASDFasdf344"]
+    listaCoki = os.environ['HTTP_COOKIE']
+    listaCoki = listaCoki.split('; ')
 
     for elemCoki in listaCoki:
         (nombre, valor) = elemCoki.split('=')

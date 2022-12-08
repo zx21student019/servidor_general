@@ -1,12 +1,12 @@
-#!C:\Users\zx21student023\AppData\Local\Microsoft\WindowsApps\python
+#!C:\Users\aceru\AppData\Local\Programs\Python\Python310\python.exe
 
 import mysql.connector
 
 mydb = mysql.connector.connect(
     host="localhost",
-    user="biblioteca",
-    password="biblioteca",
-    database="biblioteca"
+    user="ejercicio6",
+    password="ejercicio6",
+    database="ejercicio6"
 )
 
 print("Content-Type: text/html\n")
@@ -30,4 +30,8 @@ for socios in listaSocios:
     mycursor.execute("SELECT * FROM libros WHERE id_socio="+str(socios[0]))
     listaLibros = mycursor.fetchall()
     for libros in listaLibros:
-        print("<p>",libros[1],"</p>")
+        print("<p>",libros[1],"de: "+str(libros[2])+"</p>")
+
+print("""
+</body>
+</html>""")

@@ -1,4 +1,4 @@
-#!C:\Users\zx21student023\AppData\Local\Microsoft\WindowsApps\python
+#!C:\Users\aceru\AppData\Local\Programs\Python\Python310\python.exe
 
 import cgi
 
@@ -18,18 +18,19 @@ notas = f.read()
 listaNotas = notas.split(" ")
 f.close()
 
-contNota=-1
+contNota=0
 
 print("Content-Type: text/html\n")
 
 
 for nota in listaNotas:
-    contNota +=1
+    
     if int(nota)>=int(notaCorte):
         texto += listaNombres[contNota]
         texto += " "+nota+"\n"
-        
-f = open("salida.dat", "wt")
+    contNota +=1  
+
+f = open("salida.dat", "w")
 f.write(texto)
 f.close()
 
