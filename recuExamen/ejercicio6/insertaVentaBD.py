@@ -36,7 +36,7 @@ if noVacio:
 
     lista = mycursor.fetchall()
     for comprador in lista:
-        if comprador[1]==comprador:
+        if comprador[1]==dni:
             usuario=True
             idComprador=comprador[0]
 
