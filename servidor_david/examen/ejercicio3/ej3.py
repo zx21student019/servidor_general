@@ -1,4 +1,4 @@
-#!C:\Users\aceru\AppData\Local\Programs\Python\Python310\python.exe
+#!C:\Users\zx21student019\AppData\Local\Microsoft\WindowsApps\python.exe
 
 '''
 

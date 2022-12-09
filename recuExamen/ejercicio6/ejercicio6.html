@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Registro de venta de entradas</title>
+	</head>
+	<body>
+		<hr />
+		Insertar venta:<br />
+		<form action="insertaVentaBD.py" method="get">
+			Dni: <input type="text" name="dni"/><br />
+			Número de adultos: <input type="text" name="adultos"/><br />
+			Número de menores: <input type="text" name="menores"/><br />
+			<input type="submit" value="Registrar venta" />
+		</form>
+		<hr />
+		Listado de ventas: <br />
+		<form action="listadoVentasBD.py" method="get">
+			<input type="submit" value="Listado ventas" />
+		</form>
+		<hr />
+	</body>
+</html>
