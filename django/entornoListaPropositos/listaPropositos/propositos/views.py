@@ -9,5 +9,6 @@ def listadoPropositos(request):
     }
     return render(request,"propositos.html",contexto)
 
-def anadirPropositos(request):
-    nuevoProposito=Proposito(proposito=,)
+#def anadirPropositos(request):
+#    nuevoProposito=Proposito(proposito,)
+    
