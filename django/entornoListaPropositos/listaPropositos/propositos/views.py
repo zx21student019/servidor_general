@@ -40,3 +40,8 @@ def guardarProposito(request,id):
     proposito.save()
     
     return HttpResponseRedirect(reverse('propositos:listadoPropositos'))
+
+
+# proposito = Proposito.objects.get(pk=id)
+# proposito.conseguido = True
+# proposito.save()
