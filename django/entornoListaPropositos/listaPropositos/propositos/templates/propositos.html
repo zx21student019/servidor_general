@@ -5,18 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        .proposito {
+            width: 600px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .proposito span.linea {
+            flex: 1;
+            border-top: 1px solid #202020;
+        }
+
+        .proposito nav {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .proposito nav a:first-letter{
+            text-transform: uppercase;
+        }
+        
+    </style>
 </head>
 <body>
-    <form action="anadirProposito">
+    <form action="{% url 'propositos:anadirProposito' %}" method="post">
+        {% csrf_token %}
         <h1>Crear Proposito</h1>
-        <p>nombre del proposito:<input type="text"></p>
-        <p>fecha del proposito <input type="date"></p>
+
+        <label for="nomProposito">nombre del proposito:</label>
+        <input type="text" name="nomProposito">
+        <br>
+        <br>
+
+        <label for="fechObjetivo">fecha del proposito:</label>
+        <input type="date" name="fechObjetivo">
+        <br>
+        <br>
+
+        <input type="submit" value="crear">
     </form>
 
     <h1>Lista Propósitos</h1>
 
     {% for prop in propositos|dictsort:'fechaObjetivo' %}
-        <p>{{prop.fechaObjetivo|date:'d/m/Y'}} -- {{prop.proposito}}</p>
+    <div class="proposito">
+        <p>{{prop.fechaObjetivo|date:'d/m/Y'}} - {{prop.proposito}}</span></p>
+        <span class="linea"></span>
+        <nav>
+            <a href="{% url 'propositos:borrarProposito' prop.id %}">borrar</a>
+            <a href="{% url 'propositos:modificarProposito' prop.id %}">modificar</a>
+        </nav>
+    </div> 
     {% endfor %}
 </body>
 </html>
