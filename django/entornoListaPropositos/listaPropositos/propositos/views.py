@@ -11,6 +11,7 @@ def listadoPropositos(request):
     }
     return render(request,'propositos.html',contexto)
 
+<<<<<<< HEAD
 def anadirProposito(request):
     nuevoProposito = Proposito(
         proposito=request.POST['nomProposito'],
@@ -40,3 +41,8 @@ def guardarProposito(request,id):
     proposito.save()
     
     return HttpResponseRedirect(reverse('propositos:listadoPropositos'))
+=======
+#def anadirPropositos(request):
+#    nuevoProposito=Proposito(proposito,)
+    
+>>>>>>> 947bcc73bc26d50eb3ac65ec59f93a588b017db1
