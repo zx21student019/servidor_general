@@ -53,15 +53,33 @@
 
     <h1>Lista Propósitos</h1>
 
+    {% now '%Y-%m-%d' as hoy %}
+
     {% for prop in propositos|dictsort:'fechaObjetivo' %}
     <div class="proposito">
-        {%  %}
-        <p>{{prop.fechaObjetivo|date:'d/m/Y'}} - {{prop.proposito}}</span></p>
-        <span class="linea"></span>
-        <nav>
-            <a href="{% url 'propositos:borrarProposito' prop.id %}">borrar</a>
-            <a href="{% url 'propositos:modificarProposito' prop.id %}">modificar</a>
-        </nav>
+        {% if prop.completado %}
+            <del><p style="color: green;">{{prop.fechaObjetivo|date:'d/m/Y'}} - {{prop.proposito}}</span></p></del>
+            <span class="linea"></span>
+            <nav>
+                <a href="{% url 'propositos:borrarProposito' prop.id %}">borrar</a>
+                <a href="{% url 'propositos:resetearProposito' prop.id %}">resetear</a>
+            </nav>
+        {% elif prop.fechaObjetivo|date:'%Y-%m-%d' < hoy %}
+            <p style="color: red;">{{prop.fechaObjetivo|date:'d/m/Y'}} - {{prop.proposito}}</span></p>
+            <span class="linea"></span>
+            <nav>
+                <a href="{% url 'propositos:borrarProposito' prop.id %}">borrar</a>
+                <a href="{% url 'propositos:modificarProposito' prop.id %}">modificar</a>
+                <a href="{% url 'propositos:completarProposito' prop.id %}">completar</a>           </nav>
+        {% else %}
+            <p>{{prop.fechaObjetivo|date:'d/m/Y'}} - {{prop.proposito}}</span></p>
+            <span class="linea"></span>
+            <nav>
+                <a href="{% url 'propositos:borrarProposito' prop.id %}">borrar</a>
+                <a href="{% url 'propositos:modificarProposito' prop.id %}">modificar</a>
+                <a href="{% url 'propositos:completarProposito' prop.id %}">completar</a>
+            </nav>
+        {% endif %}
     </div> 
     {% endfor %}
 </body>
