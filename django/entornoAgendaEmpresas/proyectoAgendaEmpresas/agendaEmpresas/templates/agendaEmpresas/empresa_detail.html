@@ -13,6 +13,8 @@
     <p>{{empresa.telefono}}</p>
     <p>{{empresa.created}}</p>
     <p>{{empresa.updated}}</p>
+    <a href="{% url 'borrar' empresa.id %}">Borrar</a>
+    <a href="{% url 'modificar' empresa.id %}">Modificar</a>
     
 </body>
 </html>

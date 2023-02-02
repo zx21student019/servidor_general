@@ -7,15 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{%url 'crear' %}">crear empresa</a>
-<h1>listado empresas</h1>
-
-    {% for e in empresa_list %}
-    <ul>
-        <li><a href="{%url 'detalle' e.id%}">{{e.nombre}}</a></li>
-        <li>{{e.tipo}}</li>
-    </ul>
-    <hr>
-    {% endfor %}
+    <form method="post">
+        {% csrf_token %}
+        <table id="miTabla">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Crear Empresa">
+    </form>
 </body>
 </html>

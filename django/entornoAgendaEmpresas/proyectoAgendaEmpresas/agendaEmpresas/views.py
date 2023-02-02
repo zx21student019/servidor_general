@@ -2,7 +2,8 @@ from django.shortcuts import render, get_list_or_404
 from django.http import HttpResponse
 from django.template import loader
 from .models import Empresa
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse, reverse_lazy
 
 
 
@@ -13,6 +14,22 @@ class EmpresaListView(ListView):
 class EmpresaDetailView(DetailView):
     model = Empresa
 
+class EmpresaCreateView(CreateView):
+    model = Empresa
+    fields=['nombre','tipo','direccion','telefono','personaContacto']
+    reverse_lazy('listado')
+    def get_success_url(self):
+        return reverse('listado')
+
+class EmpresaUpdateView(UpdateView):
+    model = Empresa
+    fields=['nombre','tipo','direccion','telefono','personaContacto']
+    template_name_suffix = '_update_form'
+    success_url = reverse_lazy('listado')
+
+class EmpresaDeleteView(DeleteView):
+    model = Empresa
+    success_url = reverse_lazy('listado')
 
 '''
 def listado(request):

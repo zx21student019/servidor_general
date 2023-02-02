@@ -7,15 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{%url 'crear' %}">crear empresa</a>
-<h1>listado empresas</h1>
-
-    {% for e in empresa_list %}
-    <ul>
-        <li><a href="{%url 'detalle' e.id%}">{{e.nombre}}</a></li>
-        <li>{{e.tipo}}</li>
-    </ul>
-    <hr>
-    {% endfor %}
+    <form method="post">
+        {% csrf_token %}
+        <p>¿estas seguro que deseas borrarlo?</p>
+        {{ form }}
+        <input type="submit" value="Confirmar">
+    </form>
+    
 </body>
 </html>
