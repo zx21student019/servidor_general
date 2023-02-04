@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detalle de {{empresa.nombre}}</h1>
+    <p>{{empresa.tipo}}</p>
+    <p>{{empresa.direccion}}</p>
+    <p>{{empresa.telefono}}</p>
+    <p>{{empresa.created}}</p>
+    <p>{{empresa.updated}}</p>
+    <a href="{% url 'borrar' empresa.id %}">Borrar</a>
+    <a href="{% url 'modificar' empresa.id %}">Modificar</a>
+    
+</body>
+</html>

@@ -9,5 +9,9 @@ class RecetaAdmin(admin.ModelAdmin):
     ordering=('nombre','author')
     search_fields=('nombre',)
 
+class CategoriasAdmin(admin.ModelAdmin):
+    readonly_fields=('created','updated')
+    list_display=('nombre','descripcion')
+
 admin.site.register(Receta)
 admin.site.register(Categorias)

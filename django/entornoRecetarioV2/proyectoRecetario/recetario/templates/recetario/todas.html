@@ -2,5 +2,12 @@
 {% extends "recetario/base.html" %}
 
 {% block contenido %}
-    Aqui van todas las recetas
+    {% for receta in recetas %}
+        {{receta.nombre}}
+        {{receta.subnombre}}
+        {{receta.ingredientes|upper|linebrreaks}}
+        {{receta.created|date:"SHORT_DATE_FORMAT"}}
+        {{receta.receta}}
+
+
 {% endblock %}
