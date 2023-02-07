@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Lista de Empresas</title>
+</head>
+<body>
+
+     <a href="{% url 'crear' %}">Crear Receta</a>
+
+     {% for receta in receta_list %}
+          {% if not forloop.first %}<hr>{% endif %}
+          <ul>
+               <li>{{ receta.nombre }}</li>
+               <li>{{ receta.subnombre }}</li>
+               <img style="max-width: 200px; height: auto;" src="/media/{{receta.imagen}}" alt="imagen receta">
+               <li><a href="{% url 'detalle' receta.id %}">Saber más</a></li>
+          </ul>
+     {% endfor %}
+</body>
+</html>
