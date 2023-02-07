@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'recetario.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'recetarioDjangoCBV',
-        'USER': 'recetarioDjangoCBV',
-        'PASSWORD': '1234',
+        'NAME':'recetarioV3',
+        'USER': 'recetarioV3',
+        'PASSWORD': 'recetarioV3',
         'HOST': 'localhost',
         'PORT': '3306',
     }
