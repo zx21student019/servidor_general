@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Coche</title>
+</head>
+<body>
+     <h1>{{ coche.modelo }}</h1>
+     
+     <p>{{ coche.marca }}</p>
+     <p>{{ coche.precio }}</p>
+     <p>{{ coche.descripcion }}</p>
+     <p>coche añadida por: {{ coche.author }}</p>
+     <p>{{ coche.categorias }}</p>
+
+     <img src="" alt="">
+
+     <nav>
+          <a href="{% url 'modificar' coche.id %}">Modificar</a>
+          <a href="{% url 'borrar' coche.id %}">Borrar</a>
+     </nav>
+     
+</body>
+</html>

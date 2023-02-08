@@ -1,14 +1,25 @@
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
 from .models import Coche
-from django.template import loader
-from django.http import HttpResponse
 
+class CocheListView(ListView):
+     model = Coche
+     
+class CocheDetailView(DetailView):
+     model = Coche
+     
+class CocheCreateView(CreateView):
+     model = Coche
+     fields = ['marca', 'modelo', 'precio', 'descripcion', 'imagen', 'fechaCreacion', 'author']
+     success_url = reverse_lazy('listado')
 
-# Create your views here.
-def ventaCoches(request):
-    ventCoch = Coche.objects.all() 
-    contexto = {
-        'listCoch':ventCoch,
-    }
-    plantilla = loader.get_template('ventaCoches.html')
-    return HttpResponse(plantilla.render(contexto,request))
+class CocheUpdateView(UpdateView):
+     model = Coche
+     fields = ['marca', 'modelo', 'precio', 'descripcion', 'imagen']
+     template_name_suffix = '_update'
+     success_url = reverse_lazy('listado')
+
+class CocheDeleteView(DeleteView):
+     model = Coche
+     success_url = reverse_lazy('listado')
