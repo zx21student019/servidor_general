@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Coche, Categorias
 
 class CocheAdmin(admin.ModelAdmin):
-     readonly_fields=('fechaCreacion')
+     readonly_field=('fechaCreacion',)
      list_display=('marca', 'modelo')
      ordering = ('marca', 'modelo')
      search_fields = ('marca', 'modelo', 'author__username', 'categorias__nombre')

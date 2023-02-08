@@ -5,10 +5,18 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Lista de coches</title>
+     <style>
+          a.crear {
+               background-color:green;
+               color:#fff;
+               padding: 8px;
+               text-decoration:none;
+          }
+     </style>
 </head>
 <body>
 
-     <a href="{% url 'crear' %}">Crear Coche</a>
+     <a class="crear" href="{% url 'crear' %}">Crear Coche</a>
 
      {% for coche in coche_list %}
           {% if not forloop.first %}<hr>{% endif %}

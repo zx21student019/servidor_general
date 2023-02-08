@@ -11,7 +11,7 @@ class CocheDetailView(DetailView):
      
 class CocheCreateView(CreateView):
      model = Coche
-     fields = ['marca', 'modelo', 'precio', 'descripcion', 'imagen', 'fechaCreacion', 'author']
+     fields = ['marca', 'modelo', 'precio', 'descripcion', 'imagen', 'author']
      success_url = reverse_lazy('listado')
 
 class CocheUpdateView(UpdateView):
