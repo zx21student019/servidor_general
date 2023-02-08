@@ -31,4 +31,4 @@ class Coche(models.Model):
         ordering=['-fechaCreacion']
 
     def __str__(self):
-        return self.nombre 
+        return self.marca 

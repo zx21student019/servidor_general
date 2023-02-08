@@ -7,9 +7,24 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Lista de coches</title>
      <style>
+          /*Cuerpo*/
           body {
                background-color: #64aaa6;
                margin: 0px;
+          }
+
+          /*Cabecera*/
+          .cabecera {
+               color: #ffffff;
+               background-color: #373736;
+               height: 100px;
+               display: flex;
+               flex-direction: row;
+               justify-content: space-between;
+               align-items: center;
+               padding: 0 25px;
+               position: sticky;
+               top: 0px;
           }
 
           a.crear {
@@ -24,30 +39,48 @@
                color: #373736
           }
 
-          .cabecera {
-               color: #ffffff;
-               background-color: #373736;
-               height: 100px;
-               display: flex;
-               flex-direction: row;
-               justify-content: space-between;
-               align-items: center;
-               padding: 0 25px;
-               position: sticky;
-               top: 0px;
-          }
-
+          /*Anuncio*/
           div.anuncioContenedor {
                margin: 25px;
-               width: 200px;
-               height: 300px;
+               width: 250px;
+               height: 350px;
                background-color: #dddddd;
                border: #137d77 4px solid;
                border-radius: 40px 10px;
                padding: 20px;
+               display: inline-block;
           }
-          .marcaModelo{
+
+          .marcaModelo {
                font-size: 20px;
+          }
+
+          .imagenContenedor {
+               width: 250px;
+               height: 250px;
+          }
+
+          img {
+               width: 100%;
+               aspect-ratio: 1/1;
+               object-fit: contain;
+          }
+
+          .divSaberMas {
+               margin-top: 35px;
+               margin-left: 75px;
+          }
+
+          a.saberMas {
+               background-color: #137d77;
+               color: #fff;
+               padding: 8px;
+               text-decoration: none;
+          }
+
+          a.saberMas:hover {
+               background: #373736;
+               color: #ffffff
           }
      </style>
 </head>
@@ -59,7 +92,7 @@
      <div class="cabecera">
           <h1>VentaCoches</h1>
 
-          <div class="menu">
+          <div>
                <h3>Coches de segunda mano al mejor precio!!</h3>
           </div>
 
@@ -72,9 +105,9 @@
      <div class="anuncioContenedor">
 
           <div class="marcaModelo">{{ coche.marca }} {{ coche.modelo }}</div>
-          <img src="/media/{{coche.imagen}}" alt="">
-          <li><a href="{% url 'detalle' coche.id %}">Saber más</a></li>
-          </ul>
+          <div class="imagenContenedor"><img src="/media/{{coche.imagen}}" alt=""></div>
+          <div>Precio:{{ coche.precio }}€</div>
+          <div class="divSaberMas"><a class="saberMas" href="{% url 'detalle' coche.id %}">Saber más</a></div>
      </div>
      {% endfor %}
 </body>

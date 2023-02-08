@@ -1,26 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Coche</title>
 </head>
+<style>
+     /*cuerpo*/
+     body {
+          background-color: #64aaa6;
+          margin: 0px;
+     }
+
+     /*cabecera*/
+     .cabecera {
+          color: #ffffff;
+          background-color: #373736;
+          height: 100px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 25px;
+          position: sticky;
+          top: 0px;
+     }
+
+     /*coche*/
+     div.anuncioContenedor {
+          margin: 25px;
+          width: 750px;
+          height: 750px;
+          background-color: #dddddd;
+          border: #137d77 4px solid;
+          border-radius: 40px 10px;
+          padding: 20px;
+          display: inline-block;
+     }
+
+     .marcaModelo {
+          font-size: 40px;
+     }
+
+     .imagenContenedor {
+          width: 500px;
+          height: 500px;
+     }
+
+     img {
+          width: 100%;
+          aspect-ratio: 1/1;
+          object-fit: contain;
+     }
+
+     .precio {
+          font-size: 30px;
+     }
+     .descripcion {
+          font-size: 20px;
+     }
+
+     .divEnlaces {
+          margin-top: 75px;
+          margin-left: 550px;
+     }
+
+     a.enlace {
+          background-color: #137d77;
+          color: #fff;
+          padding: 8px;
+          text-decoration: none;
+     }
+
+     a.enlace:hover {
+          background: #373736;
+          color: #ffffff
+     }
+</style>
+
 <body>
-     <h1>{{ coche.modelo }}</h1>
-     
-     <p>{{ coche.marca }}</p>
-     <p>precio:{{ coche.precio }}$</p>
-     <p>{{ coche.descripcion }}</p>
-     <p>coche añadido por: {{ coche.author }}</p>
-     <p>{{ coche.categorias }}</p>
+     <div class="cabecera">
+          <h1>VentaCoches</h1>
 
-     <img src="" alt="">
+          <div class="menu">
+               <h3>Coches de segunda mano al mejor precio!!</h3>
+          </div>
 
-     <nav>
-          <a href="{% url 'modificar' coche.id %}">Modificar</a>
-          <a href="{% url 'borrar' coche.id %}">Borrar</a>
-     </nav>
-     
+          <div></div>
+     </div>
+
+     <div class="anuncioContenedor">
+
+          <div class="marcaModelo">{{ coche.marca }} {{ coche.modelo }}</div>
+          <div class="imagenContenedor"><img src="/media/{{coche.imagen}}" alt=""></div>
+          <div class="precio">Precio:{{ coche.precio }}€</div>
+          <div class="descripcion">Descripcion:{{ coche.descripcion }}€</div>
+          <div class="divEnlaces"><a class="enlace" href="{% url 'modificar' coche.id %}">Modificar</a> <a class="enlace" href="{% url 'borrar' coche.id %}">Borrar</a></div>
+     </div>
 </body>
+
 </html>
