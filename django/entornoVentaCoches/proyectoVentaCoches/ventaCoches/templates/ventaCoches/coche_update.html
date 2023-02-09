@@ -1,17 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Modificar</title>
+     <style>
+          /*Cuerpo*/
+          body {
+               background-color: #64aaa6;
+               margin: 0px;
+          }
+
+          /*Cabecera*/
+          .cabecera {
+               color: #ffffff;
+               background-color: #373736;
+               height: 100px;
+               display: flex;
+               flex-direction: row;
+               justify-content: space-between;
+               align-items: center;
+               padding: 0 25px;
+               position: sticky;
+               top: 0px;
+          }
+
+          /*formulario*/
+          .formulario {
+               margin-left: 50px;
+               font-size: 20px;
+          }
+
+          .boton {
+               background-color: #137d77;
+               color: #fff;
+               padding: 8px;
+               text-decoration: none;
+          }
+
+          .boton:hover {
+               background: #ffffff;
+               color: #373736
+          }
+     </style>
 </head>
+
 <body>
-     <h1>Modificar coche</h1>
-     <form method="post">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <input type="submit" value="Modificar coche">
-     </form>
+     <div class="cabecera">
+          <h1>VentaCoches</h1>
+
+          <div class="menu">
+               <h3>Coches de segunda mano al mejor precio!!</h3>
+          </div>
+
+          <div></div>
+     </div>
+     <div class="formulario">
+          <h1>Modificar coche</h1>
+          <form method="post">
+               {% csrf_token %}
+               {{ form.as_p }}
+               <input class="boton" type="submit" value="Modificar coche">
+          </form>
+     </div>
 </body>
+
 </html>

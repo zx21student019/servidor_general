@@ -26,9 +26,25 @@
                position: sticky;
                top: 0px;
           }
+
           /*coche*/
-          p{
+          p {
                font-size: 40px;
+          }
+          .formulario {
+               margin-left: 50px;
+          }
+
+          .confirmar {
+               background-color: #137d77;
+               color: #fff;
+               padding: 8px;
+               text-decoration: none;
+          }
+
+          .confirmar:hover {
+               background: #ffffff;
+               color: #373736
           }
      </style>
 </head>
@@ -43,13 +59,15 @@
 
           <div></div>
      </div>
-     <form method="post">
-          {% csrf_token %}
-          <p>¿De verdad quieres borrar este coche?</p>
-          <p>Coche: {{ object }}</p>
-          {{ form }}
-          <input type="submit" value="Confirmar">
-     </form>
+     <div class="formulario">
+          <form method="post">
+               {% csrf_token %}
+               <p>¿De verdad quieres borrar este coche?</p>
+               <p>Coche: {{ object }}</p>
+               {{ form }}
+               <input class="confirmar" type="submit" value="Confirmar">
+          </form>
+     </div>
 </body>
 
 </html>
