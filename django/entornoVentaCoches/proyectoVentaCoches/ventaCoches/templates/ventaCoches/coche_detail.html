@@ -96,7 +96,7 @@
           <div class="marcaModelo">{{ coche.marca }} {{ coche.modelo }}</div>
           <div class="imagenContenedor"><img src="/media/{{coche.imagen}}" alt=""></div>
           <div class="precio">Precio:{{ coche.precio }}€</div>
-          <div class="descripcion">Descripcion:{{ coche.descripcion }}€</div>
+          <div class="descripcion">Descripcion:{{ coche.descripcion }}</div>
           <div class="divEnlaces"><a class="enlace" href="{% url 'modificar' coche.id %}">Modificar</a> <a class="enlace" href="{% url 'borrar' coche.id %}">Borrar</a></div>
      </div>
 </body>
