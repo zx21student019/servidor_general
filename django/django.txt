@@ -68,7 +68,7 @@
             from . import views
 
             urlpatterns = [
-                path('', views.nombreApp, name="nombreApp"),
+                path('', views.nombreApp, name="nombreModelo"),
             ]
         <----------------------------------------->
 
@@ -91,7 +91,7 @@
 
         <----------------------------------------->
             from django.shortcuts import render
-            from .models import NombreApp
+            from .models import nombreModelo
             from django.template import loader
             from django.http import HttpResponse
 
