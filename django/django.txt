@@ -1,0 +1,129 @@
+1.CREAR ENTORNO
+    <----->python -m venv nombreEntorno<----->
+
+
+2.ACTIVAR ENTORNO Y INSTALACIONES
+    (Dentro de la carpeta del entorno): <----->Scripts\activate.bat<----->
+    (En la carpeta del entorno, Instalaciones): <----->pip install django pillow mysqlclient<----->
+
+
+3.CREAR PROYECTO DJANGO:
+
+    (En la carpeta del entorno): <----->django-admin startproject nombreProyecto<----->
+    (dentro de la carpeta del proyecto): <----->python manage.py runserver<----->
+
+
+4.CREAR APP
+    (dentro de la carpeta del proyecto): <----->python manage.py startapp proyecto<----->
+
+
+5.CAMBIAR SETTINGS
+
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'baseDeDatos',
+        'USER': 'baseDeDatos',
+        'PASSWORD': 'baseDeDatos',
+        'HOST': 'localhost',
+        'PORT': '3306', }
+
+    (En INSTALLED_APPS, añadimos esta ultima linea, teniendo en cuenta las comas):
+    
+    'nombreapp.apps.NombreappConfig',
+
+    'chuletarioApp.apps.ChuletarioappConfig',   <---------->ejemplo
+
+6.MODELS
+    (Entramos en models.py para definir las tablas y columnas de la base de datos)ejemplo:
+
+    from django.db import models
+    from django.contrib.auth.models import User
+
+    class Persona(models.Model):
+    nombre = models.CharField(max_length=200)
+    descripcion = models.TextField(null=True)
+    imagen = models.ImageField(verbose_name='foto coche',upload_to='ventaCoches')
+    fechaCreacion = models.DateTimeField(auto_now_add=True,verbose_name='Fecha de creación ')
+    author = models.ForeignKey(User,verbose_name='autor',on_delete=models.CASCADE)
+
+
+7.BASE DE DATOS
+    Creamos la base de datos en phpmyadmin con nuevo usuario.
+
+
+8.MIGRATIONS
+    En la terminal (desde el rpoyecto):
+        <----->python manage.py makemigrations<----->
+        <----->python manage.py migrate<----->
+
+9.URLS
+    Entramos en el directorio nombreApp
+    Creamos un fichero llamado urls.py (igual que el del proyecto)
+    Escribimos este código dentro (dentro de el de la app):
+
+        <----------------------------------------->
+            from django.contrib import admin
+            from django.urls import path
+            from . import views
+
+            urlpatterns = [
+                path('', views.nombreApp, name="nombreApp"),
+            ]
+        <----------------------------------------->
+
+    Vamos al urls.py del proyecto principal y escribimos dentro este codigo:
+
+        <----------------------------------------->
+            from django.contrib import admin
+            from django.urls import include,path
+
+            urlpatterns = [
+            path('',include('nombreApp.urls')),
+            path('admin/', admin.site.urls),
+            ]
+        <----------------------------------------->
+
+
+10.VIEWS
+    Entramos en views.py de la app
+    Escribimos este código dentro:
+
+        <----------------------------------------->
+            from django.shortcuts import render
+            from .models import NombreApp
+            from django.template import loader
+            from django.http import HttpResponse
+
+            # Create your views here.
+            def nombreApp(request):
+                na = nombreApp.objects.all() 
+                contexto = {
+                    'ln':na,
+                }
+                plantilla = loader.get_template('nombreApp.html')
+                return HttpResponse(plantilla.render(contexto,request))
+        <----------------------------------------->
+
+
+    na = nombreApp abreviado, ya que lo utilizaremos muy a menudo
+    ln = lista nombreApp (podemos poner ls (lista socios), lp (lista propósitos), etc.)
+
+    Este código lo que hace es redireccionar del views al html, donde una vez allí podremos usar los datos de la BD y es lo que aparecerá cuando abramos el proyecto.
+
+
+11.TEMPLATES
+    (dentro de la carpeta de la app)Creamos una carpeta llamada templates
+    Dentro de templates creamos el archivo nombreApp.html o inicio.html (o como queramos)
+
+
+12.ADMIN
+    python manage.py createsuperuser (creamos admin si necesitamos sus funcionalidades)
+    Vamos al archivo admin.py
+    Escribimos este código (nombreModelo es el nombre de la o las clases creadas en models):
+
+        <----------------------------------------->
+            from .models import nombreModelo
+
+            admin.site.register(nombreModelo)
+        <----------------------------------------->
