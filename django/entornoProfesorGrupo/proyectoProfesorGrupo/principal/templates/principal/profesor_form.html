@@ -1,0 +1,16 @@
+{% extends "principal/base.html" %}
+
+
+{% block titulo %}
+Añadir Profesor
+{% endblock %}
+
+
+{% block contenido %}
+<h1>Añadir Profesor</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Crear profesor">
+</form>
+{% endblock %}
